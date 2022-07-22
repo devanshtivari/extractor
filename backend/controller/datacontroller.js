@@ -1,10 +1,9 @@
 const asyncHandler = require('express-async-handler');
 const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb://localhost:27017/extraction";
+const client = new MongoClient(uri);
 
 const data = asyncHandler(async(req , res) => {
-    const uri = "mongodb://localhost:27017/extraction";
-    const client = new MongoClient(uri);
-
     try{
         const database = client.db("extraction");
         const collection = database.collection("data");
@@ -23,5 +22,7 @@ const data = asyncHandler(async(req , res) => {
         await client.close();
     }
 })
+
+
 
 module.exports = data;
