@@ -2,8 +2,10 @@ const asyncHandler = require("express-async-handler");
 const MongoClient = require("mongodb").MongoClient;
 const uri = "mongodb://localhost:27017/extraction";
 const client = new MongoClient(uri);
+console.log("You are in city data controller");
 
 const citydata = asyncHandler(async (req, res) => {
+    console.log("you are in the city data fetching route");
   const { city } = req.query.city;
   console.log("name of the city is : ", city);
   try {
