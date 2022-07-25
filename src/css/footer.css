@@ -1,0 +1,24 @@
+.footer{
+    width: 100%;
+    margin-top: 80vh;
+    margin-bottom: 0;
+    display: block;
+    background-color: black;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.icons{
+    display: inline-flex;
+    flex-direction: row; 
+    margin-top: 10px; 
+}
+.icon{
+    margin-left: 45px;
+    margin-right: 45px;
+}
+hr{
+    margin-top: 20px;
+    width: 90%;
+    border: 2px solid rgba(37, 79, 219, 0.4);
+}

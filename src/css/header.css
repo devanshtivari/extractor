@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Grape+Nuts&family=Open+Sans:wght@300&family=Roboto:ital,wght@1,300&display=swap');
+
+.heading{
+    background-color: black;
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    color: rgba(37, 79, 219, 0.447);
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+}
+.heading-text{
+    font-family:'Roboto' , sans-serif; 
+    font-size: 40px;
+    font-weight: 700;
+    text-decoration: 2px solid rgba(37, 79, 219, 0.447);
+    margin: auto;
+    display: inline;
+}
+hr{
+    margin-top: 20px;
+    width: 90%;
+    border: 2px solid rgba(37, 79, 219, 0.4);
+}
