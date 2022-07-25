@@ -20,8 +20,8 @@ const citydata = asyncHandler(async (req, res) => {
 
     res.json(Data);
     res.status(200);
-  } finally {
-    await client.close();
+  } catch (e) {
+    throw new Error(e.message);
   }
 });
 

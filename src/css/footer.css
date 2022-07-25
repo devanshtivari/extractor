@@ -1,6 +1,8 @@
 .footer{
+    position:fixed;
     width: 100%;
-    margin-top: 80vh;
+    margin-top: 90vh;
+    height: 100%;
     margin-bottom: 0;
     display: block;
     background-color: black;
@@ -18,7 +20,7 @@
     margin-right: 45px;
 }
 hr{
-    margin-top: 20px;
+    margin-top: 8px;
     width: 90%;
     border: 2px solid rgba(37, 79, 219, 0.4);
 }

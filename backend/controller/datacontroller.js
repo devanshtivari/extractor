@@ -8,7 +8,7 @@ const data = asyncHandler(async(req , res) => {
     try{
         console.log("you are in data fetching function")
         const database = client.db("extraction");
-        const collection = database.collection("data");
+        const collection = database.collection("delhi");
 
         const cursor = collection.find();
         const Data = [];
@@ -20,8 +20,8 @@ const data = asyncHandler(async(req , res) => {
         res.json(Data);
         res.status(200);
     }
-    finally{
-        await client.close();
+    catch(e){
+         throw new Error(e.message);
     }
 })
 
