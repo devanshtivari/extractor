@@ -5,12 +5,11 @@ const client = new MongoClient(uri);
 console.log("You are in city data controller");
 
 const citydata = asyncHandler(async (req, res) => {
-    console.log("you are in the city data fetching route");
-  const { city } = req.query.city;
-  console.log("name of the city is : ", city);
+  const city  = req.query.city;
+  console.log("this is the city name : ",city)
   try {
     const database = client.db("extraction");
-    const collection = database.collection({ city });
+    const collection = database.collection(city);
 
     const cursor = collection.find();
     const Data = [];
