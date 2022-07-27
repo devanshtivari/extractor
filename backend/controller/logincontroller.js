@@ -1,40 +1,32 @@
 const asyncHandler = require('express-async-handler');
-const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb://localhost:27017/extraction';
-const client = new MongoClient(uri);
+const admin = require('../model/usermodel');
 
-const login = asyncHandler(async(req , res) => {
-    const {username, password} = req.body;
+const login = asyncHandler(async(req,res) => {
+    const{name , password} = req.body;
 
-    if(!username || !password){
+    if(!name || !password){
         res.status(400);
-        throw new Error("Please enter all the feilds");
+        throw new Error('Please enter all the feilds');
     }
 
-    try{
-        const database = client.db("extraction");
-        const collection = database.collection("admin")
+    const User = await admin.findOne({name});
 
-        const user =  collection.findOne({name : {username}} , {password : {password}});
-        var counter = 0;
-
-        await user.forEach(function(doc){
-            counter = counter+1;
-        })
-
-        if(counter === 0){
-            res.status(200);
-            res.send("User not found");
+    if(User){
+        if(User.password === password){
+            res.status(200).json({
+                name: User.name,
+                password : User.password
+            })
         }
-        if(counter === 1){
-            res.status(200);
-            res.send("user found");
+        else{
+            res.status(400);
+            throw new Error('Invalid password');
         }
     }
-    finally{
-        await client.close();
+    else{
+        res.status(400);
+        throw new Error('User does not exist');
     }
-
 })
 
 module.exports = login;

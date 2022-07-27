@@ -1,7 +1,9 @@
-import React , {Component} from 'react';
+import {Component} from 'react';
+import * as React from 'react';
 import Card from './card';
 import Spinner from './spinner';
 import '../css/area.css';
+import "../css/header.css";
 import axios from 'axios';
 
 export class Arealocal extends Component {
@@ -9,15 +11,14 @@ export class Arealocal extends Component {
         super();
         this.state={
             articles : [],
-            loading : false
+            loading : false,
         }
     }
 
     async componentDidMount(){
-        this.setState({ loading: true });
         await axios.get('http://localhost:3000/')
         .then(res=>{
-            
+            this.setState({loading: true})
             let parsedData = res.data;
             this.setState({loading: false});
             this.setState({articles: parsedData});
@@ -25,14 +26,30 @@ export class Arealocal extends Component {
     }
 
     render(){
-        return(
+        return (
+          <>
             <div className="area">
-            {this.state.loading && <Spinner/>}
-            {this.state.articles ? this.state.articles.map((element) => {
-                return <Card key={element.Phone} name={element.Name} address={element.Address} phone={element.Phone} rating={element.Ratings} reviews={element.Reviews} desc={element.Description}/>
-            }) : <Spinner/>}
+              {this.state.loading && <Spinner />}
+              {this.state.articles ? (
+                this.state.articles.map((element) => {
+                  return (
+                    <Card
+                      key={element.Phone}
+                      name={element.Name}
+                      address={element.Address}
+                      phone={element.Phone}
+                      rating={element.Ratings}
+                      reviews={element.Reviews}
+                      desc={element.Description}
+                    />
+                  );
+                })
+              ) : (
+                <Spinner />
+              )}
             </div>
-        )
+          </>
+        );
     }
 }
 
