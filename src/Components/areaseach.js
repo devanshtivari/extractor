@@ -6,6 +6,7 @@ import "../css/area.css";
 import "../css/search.css"
 import axios from "axios";
 
+
 export class Arealocal extends Component {
     
   constructor() {
@@ -14,11 +15,13 @@ export class Arealocal extends Component {
       articles: [],
       loading: false,
     };
+    this.city = this.props;
   }
 
   
 
   async componentDidMount() {
+    console.log("name of the city is : ",this.city);
     this.setState({ loading: true });
     await axios
       .get("http://localhost:3000/city")

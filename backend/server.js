@@ -13,4 +13,4 @@ app.use(express.json());
 app.use('/' , datafetchroute);
 app.use('/city' , citydata);
 app.use('/login',loginroute);
-app.listen(3000 , console.log("Server had started successfully at port 3000"));
+app.listen(5000 , console.log("Server had started successfully at port 3000"));

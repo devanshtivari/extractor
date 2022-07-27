@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 export default function footer() {
   return (
     <div className="footer">
-      <hr />
+      <hr className="footer-hr"/>
       <div className="icons">
         <Link to="/">
           <BottomNavigationAction className="icon" icon={<PublicRoundedIcon color="primary" fontSize="large"/>} />

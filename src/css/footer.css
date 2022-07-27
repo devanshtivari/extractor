@@ -1,7 +1,7 @@
 .footer{
     position:fixed;
     width: 100%;
-    margin-top: 90vh;
+    margin-top: 100vh;
     height: 100%;
     margin-bottom: 0;
     display: block;
@@ -9,6 +9,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 .icons{
     display: inline-flex;
@@ -19,8 +20,8 @@
     margin-left: 45px;
     margin-right: 45px;
 }
-hr{
-    margin-top: 8px;
+.footer-hr{
+    margin-top: -51px;
     width: 90%;
     border: 2px solid rgba(37, 79, 219, 0.4);
 }

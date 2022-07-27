@@ -1,32 +1,38 @@
 const asyncHandler = require('express-async-handler');
-const admin = require('../model/usermodel');
+const MongoClient = require('mongodb').MongoClient;
+const uri = 'mongodb://localhost:27017/extraction';
+const client = new MongoClient(uri);
 
-const login = asyncHandler(async(req,res) => {
-    const{name , password} = req.body;
-
+const login = asyncHandler(async(req , res) => {
+    const {name , password} = req.body;
     if(!name || !password){
         res.status(400);
-        throw new Error('Please enter all the feilds');
+        throw new Error("Please enter all the fields");
     }
 
-    const User = await admin.findOne({name});
+    try{
+        const database = client.db("extraction");
+        const collection = database.collection("admin");
+        const cursor = collection.find();
+        const Data=[];
 
-    if(User){
-        if(User.password === password){
-            res.status(200).json({
-                name: User.name,
-                password : User.password
-            })
+        await cursor.forEach(function(obj){
+            Data.push(obj);
+        })
+
+        if(name === Data[0].name && password === Data[0].password){
+            res.status(200);
+            res.send("Login successful");
         }
         else{
-            res.status(400);
-            throw new Error('Invalid password');
+            res.status(200);
+            res.send("Bad credentials. Please try again")
         }
     }
-    else{
+    catch(e){
         res.status(400);
-        throw new Error('User does not exist');
+        throw new Error(e.message);
     }
-})
+});
 
 module.exports = login;

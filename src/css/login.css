@@ -1,0 +1,32 @@
+.login-box{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+    background-color: #ffffff;
+    color: red;
+    display: block;
+    position: absolute;
+    z-index: -2;
+    border-radius: 20px;
+}
+.login-box-name{
+    display: block;
+    margin-left: 20%;
+    width: 60% !important;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.login-box-password{
+    display: block;
+    margin-left: 20%;
+    width: 60% !important;
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.login-box-button{
+    display: block;
+    margin-left: 40%;
+    width: 20%;
+    margin-bottom: 20px;
+}

@@ -16,7 +16,7 @@ export class Arealocal extends Component {
     }
 
     async componentDidMount(){
-        await axios.get('http://localhost:3000/')
+        await axios.get('http://localhost:5000/')
         .then(res=>{
             this.setState({loading: true})
             let parsedData = res.data;
