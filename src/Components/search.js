@@ -1,6 +1,6 @@
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import * as React from "react";
-import "../css/search.css";
+// import "../css/search.css";
 import Areasearch from './areaseach';
 
 export default function Search() {

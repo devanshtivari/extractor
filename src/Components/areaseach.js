@@ -3,7 +3,6 @@ import Card from "./card";
 import Search from "./search";
 import Spinner from "./spinner";
 import "../css/area.css";
-import "../css/search.css"
 import axios from "axios";
 
 
